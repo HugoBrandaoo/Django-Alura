@@ -3,6 +3,8 @@ from . form import FotografiaForm
 from . models import Fotografia
 
 # Responsavel por mostrar os dados retirados do banco para o template
+# Order_by: ordena o itens criados como sendo o primeiro o mais novo a ser adicionado
+# Filter: filtra por cada item publicado
 def home(request):
     fotografia = Fotografia.objects.order_by('data').filter(publicada=True)
     return render(request,'users/home.html',{"cards":fotografia})

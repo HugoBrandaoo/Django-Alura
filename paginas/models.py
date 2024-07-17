@@ -12,7 +12,7 @@ class Fotografia(models.Model):
     data = models.DateField(default=datetime.now, blank=False)
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=250)
-    foto = models.CharField(max_length=250)
+    foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=True)
     categoria = models.ForeignKey(Categoria, on_delete= models.CASCADE)
     publicada = models.BooleanField(default=False)
 
